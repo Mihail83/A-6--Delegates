@@ -54,9 +54,25 @@ namespace Advanced_Lesson_7_Delegates
         /// Замена пробелов на подчеркивание.
         /// Продемонстрировать работу расширяющего метода.
         /// </summary>
-        public static void L7P2_StringFormater()
+        public static void L7P2_StringFormater(Func<string, string> stringMutation1)
         {
+            string[] stringCollection = {"стол","телевизор и стол", "другой стол", " стол с пробелом", "пробел без стола", "покороче ", "Еда", "кот"};
 
+            //var stringCollectionChahged = stringCollection.formatterIEnumerableStringCollection(stringMutation1);
+
+            foreach (var item in stringCollection.formatterIEnumerableStringCollection(stringMutation1))
+            {
+                Console.WriteLine(item);
+            }
+        }        
+    }
+
+    public static class Extension
+    {
+        public static IEnumerable<string> formatterIEnumerableStringCollection(this IEnumerable<string> str, Func<string, string> frmtrr)
+        {            
+            var changes = from sta in str select frmtrr(sta);
+            return changes;
         }
     }
 }

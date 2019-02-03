@@ -21,7 +21,12 @@ namespace Advanced_Lesson_7_Delegates
             //Lesson.ExamExample();
             //Practice.L7P1_Calculator();
             //Lesson.SortWithDelegatesExample();
-            Lesson.CarDelegateExample();
+            //Lesson.CarDelegateExample();
+            
+            Func<string, string> stringMutation = (a) => a.ToUpper();
+            //stringMutation += b=>b.Replace(' ','_');
+
+            Practice.L7P2_StringFormater(stringMutation);
 
             Console.ReadLine();
         }
